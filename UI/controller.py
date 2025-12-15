@@ -48,4 +48,26 @@ class Controller:
 
     """Implementare la parte di ricerca del cammino minimo"""
     # TODO
+    def handler_cammino(self, e):
+        try:
+            soglia = float(self._view.txt_soglia.value)
+        except:
+            self._view.show_alert("Inserisci un numero valido per la soglia.")
+            return
+
+        cammino= self._model.cammino_minimo(soglia)
+
+        self._view.lista_visualizzazione_3.controls.clear()
+
+        self._view.lista_visualizzazione_3.controls.append(
+            ft.Text(f"il cammino minimo è: {cammino}"))
+        self._view.page.update()
+
+
+
+
+
+
+
+
 
